@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layers xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:liv="http://schemas.android.com/apk/res-auto"
+>
+	<layer android:name="layer0" android:drawable="@drawable/layer0">
+	    <matrix>
+	        <translate liv:dx="62" liv:dy="63" />
+	    </matrix>
+	</layer>
+
+	<layer android:name="animation_drawable" android:drawable="@drawable/animation_drawable">
+        <bounds liv:left="200" liv:top="20" liv:width="115" liv:height="40" />
+    </layer>
+
+    <layer android:name="gradient_drawable" android:drawable="@drawable/gradient_drawable">
+        <bounds liv:left="0" liv:top="0" liv:right="100" liv:bottom="129" />
+	    <matrix>
+	        <translate liv:dx="200" liv:dy="69" />
+	        <rotate liv:degrees="20" liv:px="50" liv:py="64.5" />
+	    </matrix>
+    </layer>
+
+    <layer android:name="layer1" android:drawable="@drawable/layer1">
+	    <matrix>
+	        <translate liv:dx="81" liv:dy="146" />
+	    </matrix>
+	</layer>
+</layers>

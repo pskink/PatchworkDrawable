@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PatchworkDrawable">
+        <!-- layers xml res id -->
+        <attr name="layers" format="reference"/>
+        
+        <!-- <translate> dx -->
+        <attr name="dx" format="float"/>
+        <!-- <translaten> dy -->
+        <attr name="dy" format="float"/>
+        <!-- <scale> sx -->
+        <attr name="sx" format="float"/>
+        <!-- <scale> sy -->
+        <attr name="sy" format="float"/>
+        <!-- <skew> kx -->
+        <attr name="kx" format="float"/>
+        <!-- <skew> ky -->
+        <attr name="ky" format="float"/>
+        <!-- <rotate> degrees-->
+        <attr name="degrees" format="float"/>
+        <!-- <scale|skew|rotate> pivot x -->
+        <attr name="px" format="float"/>
+        <!-- <scale|skew|rotate> pivot y -->
+        <attr name="py" format="float"/>
+        
+        <!-- bounds left -->
+        <attr name="left" format="integer"/>
+        <!-- bounds top -->
+        <attr name="top" format="integer"/>
+        <!-- bounds right -->
+        <attr name="right" format="integer"/>
+        <!-- bounds bottom -->
+        <attr name="bottom" format="integer"/>
+        <!-- bounds width -->
+        <attr name="width" format="integer"/>
+        <!-- bounds height -->
+        <attr name="height" format="integer"/>
+        
+    </declare-styleable>
+
+</resources>
