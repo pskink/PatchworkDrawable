@@ -108,29 +108,45 @@ public class PatchworkDrawable extends Drawable implements Callback {
         return null;
     }
 
+    private RectF mTmpRect = new RectF();
+    private Matrix mTmpMatrix = new Matrix();
+    private Matrix mTmpInverseMatrix = new Matrix();
+    private float[] mTmpPts = new float[4];
+
     /**
      * Find all layers which bounds contain point (x, y). The coordinate is a pixel
-     * based, relative to the top-left corner of this view (so you can pass 
-     * TouchEvent#getX() and TouchEvent#getY()) 
+     * based, relative to the top-left corner of the view this Drawable is 
+     * drawn with (so you can pass TouchEvent#getX() and TouchEvent#getY())
      * @param list Where the layers are written
-     * @param m The matrix this Drawable is drawn with (or null if none)
+     * @param m The matrix this Drawable is drawn with (or null if none). For
+     * example if used with {@link ImageView} your should pass 
+     * {@link ImageView#getImageMatrix()}  
      * @param x The X coordinate of the point being tested for containment
      * @param y The Y coordinate of the point being tested for containment
      */
     public void getLayersAt(List<Layer> list, Matrix m, float x, float y) {
         Iterator<Layer> iter = mLayers.iterator();
         list.clear();
-        RectF rect = new RectF();
+        float[] pts = mTmpPts;
+        pts[0] = x;
+        pts[1] = y;
         
         while (iter.hasNext()) {
             Layer layer = iter.next();
-            rect.set(layer.drawable.getBounds());
-            layer.matrix.mapRect(rect);
+        
+            mTmpMatrix.reset();
             if (m != null) {
-                m.mapRect(rect);
+                mTmpMatrix.preConcat(m);
             }
-            if (rect.contains(x, y)) {
-                list.add(layer);
+            if (layer.matrix != null) {
+                mTmpMatrix.preConcat(layer.matrix);
+            }
+            if (mTmpMatrix.invert(mTmpInverseMatrix)) {
+                mTmpInverseMatrix.mapPoints(pts, 2, pts, 0, 1);
+                mTmpRect.set(layer.drawable.getBounds());
+                if (mTmpRect.contains(pts[2], pts[3])) {
+                    list.add(layer);
+                }
             }
         }
     }
