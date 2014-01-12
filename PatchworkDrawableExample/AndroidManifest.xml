@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<manifest package="org.pskink.patchworkdrawable" xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.pskink.patchworkdrawable">
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17"/>
-    <!--
-         The smallest screen this app works on is a phone.  The app will
-         scale its UI to larger screens but doesn't make good use of them
-         so allow the compatibility mode button to be shown (mostly because
-         this is just convenient for testing).
-    -->
     <supports-screens android:anyDensity="true"/>
     <application android:label="PatchworkDrawable" android:icon="@drawable/ic_launcher">
         <activity android:name=".Main">

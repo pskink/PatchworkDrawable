@@ -130,7 +130,6 @@ public class Show extends Activity {
 		setContentView(iv);
 	}
 
-	@Trace(false)
 	private Layer addLayer(PatchworkDrawable ld, Bitmap b, Rect rect) {
 		Drawable d = new SubImageDrawable(b, rect);
 		Matrix matrix = new Matrix();
@@ -272,33 +271,5 @@ public class Show extends Activity {
 		};
 		iv.setOnClickListener(l1);
 		iv.postDelayed(action1, 2000);
-
-		// final float[] values = new float[9];
-		// final float[] pts = new float[2];
-		// final Matrix inverse = new Matrix();;
-		// OnTouchListener l = new OnTouchListener() {
-		// @Override
-		// public boolean onTouch(View view, MotionEvent event) {
-		// int action = event.getAction();
-		// if (action != MotionEvent.ACTION_UP) {
-		// if (inverse.isIdentity()) {
-		// v.getImageMatrix().invert(inverse);
-		// Log.d(TAG, "onTouch set inverse");
-		// }
-		// pts[0] = event.getX();
-		// pts[1] = event.getY();
-		// inverse.mapPoints(pts);
-		//
-		// mm.getValues(values);
-		// // gd's bounds are (0, 0, 100, 129);
-		// values[Matrix.MTRANS_X] = pts[0] - 100 / 2;
-		// values[Matrix.MTRANS_Y] = pts[1] - 129 / 2;
-		// mm.setValues(values);
-		// v.invalidate();
-		// }
-		// return false;
-		// }
-		// };
-		// v.setOnTouchListener(l);
 	}
 }

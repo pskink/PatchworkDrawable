@@ -4,9 +4,11 @@ any standard android [Animation][] can be applied to.
 
 For example given the background and two layers:
 
-![properties](res/drawable-mdpi/background.png)
-![properties](res/drawable-mdpi/layer0.png)
-![properties](res/drawable-mdpi/layer1.png)
+![properties](PatchworkDrawableExample/res/drawable-mdpi/background.png)
+
+![properties](PatchworkDrawableExample/res/drawable-mdpi/layer0.png)
+
+![properties](PatchworkDrawableExample/res/drawable-mdpi/layer1.png)
 
 the result might look like:
 
@@ -24,7 +26,7 @@ Typical usage:
     // add new layer
     ld.addLayer(drawable, matrix);
 
-    ImageView iv = 
+    ImageView iv = ...;
     iv.setImageDrawable(ld);
 
 Thank you.
